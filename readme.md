@@ -131,7 +131,7 @@ peut bien entendu faire des animations avec, les positionner par rapport à leur
 ### REM
 
 * Le REM est basé sur la taille de la racine (soit la balise html) qui par défaut à une valeur de 16px. Afin d'éviter tout calcul, il est nécessaire de l'écraser en donnant une base de 10px soit 62.5px.
-* Le REM est intéressant à utiliser si les média-queries employées sont en rem également. Cela vous permettra de garder des proportions égales lorsequ'on va redimensionner la page.
+* Le REM est intéressant à utiliser si les Media-Queries employées sont en rem également. Cela vous permettra de garder des proportions égales lorsqu'on va redimensionner la page.
 * Ses proportions seront également gardées quand l'utilisateur zoomera dans votre page.
 
 ```css
@@ -155,6 +155,14 @@ peut bien entendu faire des animations avec, les positionner par rapport à leur
 * Unités relatives à la taille de votre écran (peu importe le device)
 * Attention au VH et à son contenu. 100vh === 100vh quoi qu'il arrive.
 * VW : très utile pour les interfaces fluides.
+
+### Gulp
+
+
+Pour installer Gulp de manière globale : `npm install -g gulp`
+Pour initialiser Gulp sur son dossier de projet :
+* `npm init`
+* `npm install gulp --save-dev`
 
 ## liens utiles :
 
