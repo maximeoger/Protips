@@ -1,6 +1,11 @@
 # Documentation
 
-## Convention BEM
+mise à jour le : 15/06/2018
+
+# css :art:
+
+
+### Convention BEM
 
 * B -> Block
 * E -> Element
@@ -65,14 +70,14 @@
 
 }
 ```
-## Pseudos attributs
+### Pseudos attributs
 
 Les pseudos attributs `::before` et `::after` permettent de créer des neuds HTML et CSS.
 Ils sont éssentiellements utilisés pour ajouter des ornements, des décorations ... On
 peut bien entendu faire des animations avec, les positionner par rapport à leur parent (relative / absolute).
 ** Ils doivent obligatoirement avoir un `content: '';`**
 
-## Centrer en 3 lignes de CSS (verticalement)
+### Centrer en 3 lignes de CSS (verticalement)
 
 ``` HTML
 <section class="cover">
@@ -108,11 +113,11 @@ peut bien entendu faire des animations avec, les positionner par rapport à leur
   }
 }
 ```
-## REM, EM, %, VW Sizing
+### REM, EM, %, VW Sizing
 
-### %
+#### %
 
-### EM
+#### EM
 
 * Le EM est relatif à sont parent direct et non pas à sa racine comme le REM.
 
@@ -128,7 +133,7 @@ peut bien entendu faire des animations avec, les positionner par rapport à leur
 }
 ```
 
-### REM
+#### REM
 
 * Le REM est basé sur la taille de la racine (soit la balise html) qui par défaut à une valeur de 16px. Afin d'éviter tout calcul, il est nécessaire de l'écraser en donnant une base de 10px soit 62.5px.
 * Le REM est intéressant à utiliser si les Media-Queries employées sont en rem également. Cela vous permettra de garder des proportions égales lorsqu'on va redimensionner la page.
@@ -147,7 +152,6 @@ peut bien entendu faire des animations avec, les positionner par rapport à leur
     width: 32rem;
   }
 
-
 ```
 
 ### VW(idth) / VH(eight)
@@ -156,7 +160,7 @@ peut bien entendu faire des animations avec, les positionner par rapport à leur
 * Attention au VH et à son contenu. 100vh === 100vh quoi qu'il arrive.
 * VW : très utile pour les interfaces fluides.
 
-### Gulp
+## Gulp
 
 
 Pour installer Gulp de manière globale : `npm install -g gulp`
@@ -164,6 +168,83 @@ Pour initialiser Gulp sur son dossier de projet :
 * `npm init`
 * `npm install gulp --save-dev`
 
+# JavaScript
+
+###### this
+
+`this` est un mot clé servant à identifier la relation avec la fonction qui l'a défini au départ
+
+
+### ES2015
+
+###### fonctions fléchées
+En plus d'offir une synthaxe plus simple, elles ne prennent pas leurs valeurs pour `this`, `arguments`, `super` ou `new.target` donc plutôt pas mal pour définir des fonctions simples. Il ne faut pas l'utiliser pour définir des méthodes de classes.
+
+```javaScript
+// dans une variable
+let faisUnTruc = () => {
+  console.log('truc');
+}
+
+// anonyme
+let animals = ['dog', 'cat', 'girafe', 'zebra'];
+
+animals.forEach( animal => console.log(animal) );
+```
+
+### React
+
+React est basée sur le concept de la programmation orientée objet avec javaScript. l'application sera organisée en composants indépendants les uns des autres (dans la plupart des cas) ce qui permet une meilleure maintenabilité du code. Chaque composant sera défini dans une `class` qui hérite des propriétés de la classe `React.Component`. Par convention, on va chercher à séparer nos composants dans des fichiers distincts. Afin que la classe puisse hériter des propritétés de `React.Component` il faut importer React via une règle d'importation :
+
+```javascript
+import React from "react";
+```
+
+###### Structure du fichier
+
+
+###### props
+
+Les props agissent comme des "attributs" pour les composants react
+* ex : pour un composant ` <header tagline /> ` la props est le mot clé `tagline`
+* pour voir les props d'un composant, aller dans l'onglet React de chrome (requier React dev tools)
+* une props doit être passée avec des accolades `{props}`
+
+###### Composants
+
+Pour créer un composant, il faut créer une classe qui prends le nom du composant voulu, par convention, on nomme les classes avec la première lettre en majuscule.
+
+```javascript
+import React from "react";
+
+class Header extends React.Component {
+  render(){
+    return(
+        <header className="top">
+          <h1>
+            catch
+            <span className="ofhe">
+              <span className="of">of</span>
+              <span className="the">the</span>
+            </span>
+            day
+          </h1>
+          <h3 className="tagline">
+            <span>{this.props.tagline}</span>
+          </h3>
+        </header>
+    )
+  }
+}
+
+export default Header;
+```
+
+### PHP
+
+
 ## liens utiles :
 
 * [caniuse](http://caniuse.com)
+* [frontend developer job interview questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions)
+* [css next](http://cssnext.io/)
