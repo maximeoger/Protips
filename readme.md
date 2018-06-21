@@ -1,6 +1,6 @@
-# Documentation
+# Protips
 
-mise à jour le : 15/06/2018
+dernière mise à jour : 20/06/2018
 
 # css :art:
 
@@ -160,10 +160,11 @@ peut bien entendu faire des animations avec, les positionner par rapport à leur
 * Attention au VH et à son contenu. 100vh === 100vh quoi qu'il arrive.
 * VW : très utile pour les interfaces fluides.
 
-## Gulp
+## Npm
 
+Npm sert à gérer des dépendances dans un projet
 
-Pour installer Gulp de manière globale : `npm install -g gulp`
+ex: Pour installer Gulp de manière globale : `npm install -g gulp`
 Pour initialiser Gulp sur son dossier de projet :
 * `npm init`
 * `npm install gulp --save-dev`
@@ -172,7 +173,10 @@ Pour initialiser Gulp sur son dossier de projet :
 
 ###### this
 
-`this` est un mot clé servant à identifier la relation avec la fonction qui l'a défini au départ
+`this` est un mot clé servant à identifier la relation avec la fonction qui l'a défini au départ. Sa valeur est déterminée à partir de la fonction qui l'appelle.
+
+
+
 
 
 ### ES2015
@@ -181,16 +185,21 @@ Pour initialiser Gulp sur son dossier de projet :
 En plus d'offir une synthaxe plus simple, elles ne prennent pas leurs valeurs pour `this`, `arguments`, `super` ou `new.target` donc plutôt pas mal pour définir des fonctions simples. Il ne faut pas l'utiliser pour définir des méthodes de classes.
 
 ```javaScript
+let animals = ['chien', 'chat', 'girafe', 'zebre'];
+
 // dans une variable
 let faisUnTruc = () => {
   console.log('truc');
 }
 
-// anonyme
-let animals = ['dog', 'cat', 'girafe', 'zebra'];
-
+// fonction fléchée anonyme
 animals.forEach( animal => console.log(animal) );
+
 ```
+
+###### programmation orientée objet en JavaScript
+
+* mots clés
 
 ### React
 
@@ -242,9 +251,116 @@ export default Header;
 
 ### PHP
 
+##### Programmation Orientée Objet
+
+###### les classes
+
+une classe est une définition d'un concept un peut comme un moule qui va contenir des attributs et des méthodes
+
+```PHP
+class Person
+{
+  private $name;
+  private $weight;
+
+  function __construct(string $name)
+  {
+    this->name = $name;
+  }
+
+  function setWeight(int $weight)
+  {
+    this->weight = $weight;
+  }
+
+  function getWeight()
+  {
+    return this->weight;
+  }
+}
+
+$toto = new Person("toto");
+toto->setWeight("78");
+// -> 78
+
+```
+###### méthodes magiques
+
+* `__toString()` transforme une donné en string
+
+##### Symfony
+
+Créer un projet symfony
+
+```
+$ composer create-project symfony/website-skeleton [project-name]
+```
+
+Créer une entité : possibilité de remplacer bin/console par un alias.
+une entité peut etre une table. Si la table existe déjà, on peut modifier et rajouter des colones
+
+```
+$ bin/console make:entity
+```
+
+Créer une migration  ( si erreur, modifier vendor/.env )
+
+```
+$ bin/console make:migration
+```
+
+Créer la base de données
+
+```
+$ bin/console doctrine:database:create
+```
+
+Update le schema
+
+```
+$ bin/console doctrine:schema:update --force
+```
+executer la migration
+
+```
+$ bin/console doctrine:migration:migrate
+```
+
+lancer un serveur
+
+```
+$ bin/console server:run
+```
+
+créer un crud
+
+```
+$ bin/console make:crud [nom-table-à-traiter]
+```
+
+
+créer les fonctionnalités admin
+
+```
+$ composer req admin
+```
+
+#### twig
+
+* ` { instruction } ` affiche une donnée
+* ` {% instruction %} ` bloc d'instruction contenant du code
+
+
+#### Les relations :
+
+* `ManyToOne`
+* `OneToMany`
+* `ManyToMany`
+* `OneToOne`
 
 ## liens utiles :
 
+* [doc symfony](https://symfony.com/doc/current/index.html)
 * [caniuse](http://caniuse.com)
 * [frontend developer job interview questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions)
 * [css next](http://cssnext.io/)
