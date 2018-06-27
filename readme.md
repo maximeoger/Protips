@@ -218,6 +218,7 @@ Les props agissent comme des "attributs" pour les composants react
 * ex : pour un composant ` <header tagline /> ` la props est le mot clé `tagline`
 * pour voir les props d'un composant, aller dans l'onglet React de chrome (requier React dev tools)
 * une props doit être passée avec des accolades `{props}`
+* Les props doivent rester en lecture seule : lorsque l'on déclare une fonction ou une classe, celle çi ne doit jamais modifier ses propres props (on les appelles les fonctions "pures" cad qu'elles retournent les mêmes valeurs en sorties qu'en entrée) un composant réact doit agir comme une fonction pure
 
 ###### Composants
 
@@ -290,10 +291,31 @@ toto->setWeight("78");
 
 ##### Symfony
 
-Créer un projet symfony
+symfony possède deux controlleurs frontaux : __/web/app.php__ pour les visiteurs de l'application (environement de production) et __/web/app_dev.php__ (environement de developpement) pour les développeurs. Symfony prends en compte le DX (Developer Experience) au même titre que l'UX
+###### structure du projet :
+
+* __/app__ : contient tout ce qui compose l'application sauf le code source
+* __/bin__ : contient les commandes nécessaires au développement de l'application
+* __/src__ : contient le code source de l'application
+* __/tests__ : contient les tests unitaires nécessaires a certaines fonctionnalités
+* __/var__ : contient une trace de ce que va écrire symfony (logs, cache, etc)
+* __/vendor__ : contient les dépendances installées via composer (Twig, Doctrine, etc)
+* __/web__ : contient les fichiers publiques (assets/images, css, js etc)
+
+###### termes techniques :
+
+* __Route__ : configuration qui définie l'url d'une page  
+* __Controller__ : fonction ou methode qui génère le contenu d'une page
+
+###### Créer un projet symfony
 
 ```
 $ composer create-project symfony/website-skeleton [project-name]
+```
+commande composer pour utiliser la commande `bin/console` dans symfony
+
+```
+$ composer require server
 ```
 
 Créer une entité : possibilité de remplacer bin/console par un alias.
@@ -353,10 +375,10 @@ $ composer req admin
 
 #### Les relations :
 
-* `ManyToOne`
-* `OneToMany`
-* `ManyToMany`
-* `OneToOne`
+* __ManyToOne__
+* __OneToMany__
+* __ManyToMany__
+* __OneToOne__
 
 ## liens utiles :
 
